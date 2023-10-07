@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
@@ -8,21 +10,38 @@ const Register = () => {
 
     const handleRegister = (e) =>{
         e.preventDefault();
-        const name = e.target.name.value;
+        // const name = e.target.name.value;
         const email = e.target.email.value;
-        const photo = e.target.photoURL.value;
+        // const photo = e.target.photoURL.value;
         const password = e.target.password.value;
-        console.log(name, email, photo, password);
+        // console.log(name, email, photo, password);
 
-        createUser(email, password)
-        .then(res => {
-            console.log(res.user);
-            e.target.reset();
-            navigate('/');
-        })
-        .catch(error =>{
-            console.log(error.message);
-        })
+
+        if(password.length <6){
+         return toast('password must be at least 6 character')
+        }
+        if(!/[A-Z]/.test(password)){
+          return toast('Give at least one uppercase character');
+        }
+        if(!/[*@#$%^&+=]/.test(password)){
+          return toast('provide at least one special character')
+        }
+        else{
+          createUser(email, password)
+          .then(() => {
+              // console.log(res.user);
+              e.target.reset();
+              navigate('/');
+              return toast('Registration successful')
+              
+          })
+          .catch((error) =>{
+              // console.log(error.message);
+              return toast(error.message)
+              
+          })
+        }
+   
         
     }
 
@@ -41,7 +60,7 @@ const Register = () => {
                 <span className="label-text">Name</span>
               </label>
               <input
-                type="name"
+                type="text"
                 placeholder="Your Name"
                 name="name"
                 className="input input-bordered"
@@ -96,6 +115,7 @@ const Register = () => {
           <p className="text-center mb-5">Already have an account? Please <Link className="text-blue-600" to='/login'>Login</Link></p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

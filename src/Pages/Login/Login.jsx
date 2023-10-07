@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const {signInUser} = useContext(AuthContext);
+    const {signInUser, googleLogin} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -12,18 +14,33 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log( email, password);
+        // console.log( email, password);
 
         signInUser(email, password)
-        .then(res => {
-            console.log(res.user);
+        .then(() => {
+            // console.log(res.user);
             e.target.reset();
             navigate(location?.state ? location.state : '/');
+            return toast('Logged in success');
+            
         })
-        .catch(error =>{
-            console.log(error.message);
+        .catch((error) =>{
+            // console.log(error.message);
+            return toast(error.message);
+            
         })
         
+    }
+
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(() =>{
+            navigate(location?.state ? location.state : '/');
+            return toast('Logged in success');
+        })
+        .catch(error =>{
+            return toast(error.message);
+        })
     }
 
 
@@ -68,12 +85,17 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
+
+            <div>
+                <p className="text-xl text-center mt-3">Sign in with <Link onClick={handleGoogleLogin} className="text-blue-600">Google</Link></p>
+            </div>
              
             </div>
           </form>
           <p className="text-center mb-5">New to this website? Please <Link className="text-blue-600" to='/register'>Register</Link></p>
         </div>
       </div>
+      <ToastContainer />
     </div>
     );
 };

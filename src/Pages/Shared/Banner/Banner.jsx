@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="w-auto">
             <h1 className="mb-5 text-6xl font-bold capitalize"><span className="text-4xl">CELEBRATE YOUR EVENTS </span> <br /><span className="uppercase text-7xl">THAT LASTS LONGER</span></h1>
-            <button className="btn btn-error text-white">Get Started</button>
+            
           </div>
         </div>
       </div>

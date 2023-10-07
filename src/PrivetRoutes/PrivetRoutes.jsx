@@ -8,7 +8,7 @@ const PrivetRoutes = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return <span><span className="loading loading-spinner loading-lg"></span></span>
+        return <span><span className="loading loading-spinner loading-lg mx-auto text-center flex mt-8"></span></span>
     }
     if(user){
         return children

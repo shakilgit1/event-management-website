@@ -4,6 +4,8 @@ import Services from "../../components/Services";
 import Reviews from "../../components/Reviews/Reviews";
 import Features from "../../components/Features";
 
+
+
 const Home = () => {
   const events = useLoaderData();
 
@@ -22,8 +24,8 @@ const Home = () => {
      
       <div className="">
         <Reviews></Reviews>
-
         <Features></Features>
+
       </div>
     </div>
   );
