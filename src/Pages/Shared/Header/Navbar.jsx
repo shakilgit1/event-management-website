@@ -19,11 +19,15 @@ const Navbar = () => {
 
   const navLinks = <>
    <li><NavLink to="/">Home</NavLink></li>
-   <li><NavLink to="/services">Services</NavLink></li>
-   <li><NavLink to="/events">Events</NavLink></li>
-   <li><NavLink to="/blog">Blog</NavLink></li>
    <li><NavLink to="/register">Register</NavLink></li>
-   <li><NavLink to="/contact">Contact Us</NavLink></li>
+   
+   {
+    user && <>
+     <li><NavLink to="/services">Services</NavLink></li>
+     <li><NavLink to="/about">About</NavLink></li>
+     
+    </>
+   }
   </>
 
   return (

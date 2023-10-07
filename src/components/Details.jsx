@@ -18,7 +18,7 @@ const Details = () => {
     <div className="mx-auto mt-8 md:flex justify-center lg:gap-20">
      
 
-     <div className=" bg-base-100 shadow-xl p-4">
+     <div className="hover:scale-[1.05] duration-1000 bg-base-100 shadow-xl p-4">
         <figure>
           <img className="h-[280px] w-full"
             src={singleItem.image_url}
