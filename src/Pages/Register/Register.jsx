@@ -1,6 +1,30 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleRegister = (e) =>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const photo = e.target.photoURL.value;
+        const password = e.target.password.value;
+        console.log(name, email, photo, password);
+
+        createUser(email, password)
+        .then(res => {
+            console.log(res.user);
+            e.target.reset();
+            navigate('/');
+        })
+        .catch(error =>{
+            console.log(error.message);
+        })
+        
+    }
 
 
   return (
@@ -11,7 +35,7 @@ const Register = () => {
           
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -31,7 +55,7 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="Photo URL"
-                name="photo"
+                name="photoURL"
                 className="input input-bordered"
                 required
               />
@@ -66,7 +90,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
             </div>
           </form>
           <p className="text-center mb-5">Already have an account? Please <Link className="text-blue-600" to='/login'>Login</Link></p>
