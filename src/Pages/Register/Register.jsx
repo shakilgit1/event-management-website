@@ -3,10 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+      AOS.init({duration:"1000", delay:"500"});
+    
+    }, []);
 
     const handleRegister = (e) =>{
         e.preventDefault();
@@ -47,8 +55,8 @@ const Register = () => {
 
 
   return (
-    <div className="hero min-h-screen bg-base-200 ">
-      <div className="hero-content flex-col">
+    <div  className="hero min-h-screen bg-base-200 ">
+      <div data-aos="fade-down" className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-bold px-12 mb-4">Register now!</h1>
           

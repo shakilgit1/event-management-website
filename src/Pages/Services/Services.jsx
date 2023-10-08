@@ -1,11 +1,22 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import "aos/dist/aos.css";
+
 
 const Services = () => {
-    return (
-        <div className="mx-auto container my-20">
-            <h2 className="text-5xl text-center mb-4 font-semibold"><span className="text-orange-600">Dvents</span> Services</h2>
-            <p className="text-xl text-center">We make your events smart & impactful by personalised event management services</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-4 mt-14">
+    useEffect(() => {
+        AOS.init({duration:"1000", delay:"500"});
+        
+      }, []);
+
+    return (
+        <div className="mx-auto container my-20 px-4">
+            <h2 data-aos="fade-down" className="text-5xl text-center mb-4 font-semibold"><span className="text-orange-600">Dvents</span> Services</h2>
+            <p data-aos="fade-down" className="text-xl text-center">We make your events smart & impactful by personalised event management services</p>
+
+            <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-4 mt-14">
                 <div>
                 <div className="w-96 space-y-4">
                     <img className="hover:scale-[1.05] duration-1000" src="https://i.ibb.co/8B4nxTB/7.jpg" alt="" />

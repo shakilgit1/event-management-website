@@ -1,18 +1,27 @@
 import img1 from '../assets/1.png'
 import img2 from '../assets/2-4.jpg'
 import { FaBusinessTime, FaFaceLaugh, FaPeopleRobbery, FaPeopleGroup } from "react-icons/fa6";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Features = () => {
+
+  useEffect(() => {
+    AOS.init({duration:"1000", delay:"200"});
+    // AOS.refresh();
+  }, []);
+
     return (
         <div className='grid lg:grid-cols-2 gap-20 container mx-auto my-12'>
-            <div className='flex'>
-                <img className=' w-48 md:w-80 hover:scale-[1.05] duration-1000' src={img1} alt="" />
+            <div data-aos="fade-right" className='flex'>
+                <img   className=' w-48 md:w-80 hover:scale-[1.05] duration-1000' src={img1} alt="" />
                 
-                <img className='w-48 md:w-80 hover:scale-[1.05] duration-1000' src={img2} alt="" />
+                <img   className='w-48 md:w-80 hover:scale-[1.05] duration-1000' src={img2} alt="" />
                 
 
             </div>
-            <div>
+            <div  data-aos="fade-right">
           <h2 className="text-5xl"><span className='text-orange-600'>Dvents</span> - <span className='font-semibold'>Events That Lasts</span></h2>
           <p className='text-xl font-semibold my-6'>You should choose Dvents Services because we bring your <br /> guests closer to you & helps you to create a relationship <br /> that lasts long!</p>
 

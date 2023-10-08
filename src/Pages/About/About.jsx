@@ -1,14 +1,23 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const About = () => {
+
+    useEffect(() => {
+        AOS.init({duration:"1000", delay:"500"});
+       
+      }, []);
+    
     return (
-        <div>
+        <div className="px-4">
             <div>
-            <h2 className="text-5xl text-center mb-4 font-semibold  my-10">We <span className="text-orange-600">Create Events</span> That Lasts</h2>
-            <p className="text-xl text-center">We make your events smart & impactful by personalised event management services</p>
+            <h2 data-aos="fade-up" className="text-5xl text-center mb-4 font-semibold  my-10">We <span className="text-orange-600">Create Events</span> That Lasts</h2>
+            <p data-aos="fade-up" className="text-xl text-center">We make your events smart & impactful by personalised event management services</p>
 
 
             <div className="container mx-auto my-10 md:flex justify-between">
-                <div className="space-y-8">
+                <div data-aos="fade-right" className="space-y-8">
                     <h2 className="text-4xl font-semibold">Why Choose <span className="text-orange-600">Dvents</span></h2>
                     <h2 className="text-3xl font-semibold">
                     The Events Specialists
@@ -24,33 +33,33 @@ const About = () => {
                    
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/KLr8gQZ/Screenshot-1.png" alt="" />
+                    <img data-aos="zoom-in" src="https://i.ibb.co/KLr8gQZ/Screenshot-1.png" alt="" />
                 </div>
             </div>
            </div>
 
            <div className="mb-20 container mx-auto">
-           <h2 className="text-5xl text-center mb-4 font-semibold my-10"><span className="text-orange-600">Dvents</span> Team Members</h2>
-            <p className="text-xl text-center mb-8">We make your events smart & impactful by personalised event management services</p>
+           <h2 data-aos="fade-up" className="text-5xl text-center mb-4 font-semibold my-10"><span className="text-orange-600">Dvents</span> Team Members</h2>
+            <p data-aos="fade-up" className="text-xl text-center mb-8">We make your events smart & impactful by personalised event management services</p>
 
 
             <div className="grid md:grid-cols-2 justify-between ml-20 gap-4">
-                <div>
+                <div data-aos="zoom-in-up">
                     <img src="https://i.ibb.co/19jqpQT/1-8.jpg" alt="" />
                     <h3 className="text-xl">Charles Hasman</h3>
                     <p>Founder & Director</p>
                 </div>
-                <div>
+                <div data-aos="zoom-in-up">
                     <img src="https://i.ibb.co/T8C42F0/2-5.jpg" alt="" />
                     <h3 className="text-xl">Ava Taylor</h3>
                     <p>Supervisor</p>
                 </div>
-                <div>
+                <div data-aos="zoom-in-up">
                     <img src="https://i.ibb.co/sQ56TLf/3-3.jpg" alt="" />
                     <h3 className="text-xl">Kethy Hilton</h3>
                     <p>Events Manager</p>
                 </div>
-                <div>
+                <div data-aos="zoom-in-up">
                     <img src="https://i.ibb.co/XVtdGjg/4-3.jpg" alt="" />
                     <h3 className="text-xl">Charles Hasman</h3>
                     <p>Events Manager</p>

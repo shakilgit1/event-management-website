@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 import About from "../Pages/About/About";
 import Services from "../Pages/Services/Services";
+import Events from "../Pages/Events/Events";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
           path: '/services',
           element: <Services></Services>
+        },
+        {
+          path: 'events',
+          element: <Events></Events>
         }
        
       ]

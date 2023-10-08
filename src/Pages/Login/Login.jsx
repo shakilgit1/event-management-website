@@ -3,12 +3,20 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Login = () => {
 
     const {signInUser, googleLogin} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+
+    useEffect(() => {
+      AOS.init({duration:"1000", delay:"500"});
+    
+    }, []);
 
     const handleLogin = (e) =>{
         e.preventDefault();
@@ -46,7 +54,7 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200 ">
-      <div className="hero-content flex-col">
+      <div data-aos="fade-down" className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-bold px-12 mb-4">Login now!</h1>
           
