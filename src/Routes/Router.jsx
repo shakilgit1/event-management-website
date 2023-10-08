@@ -40,11 +40,11 @@ const router = createBrowserRouter([
         },
         {
           path: '/services',
-          element: <Services></Services>
+          element: <PrivetRoutes><Services></Services></PrivetRoutes>
         },
         {
           path: 'events',
-          element: <Events></Events>
+          element: <PrivetRoutes><Events></Events></PrivetRoutes>
         }
        
       ]

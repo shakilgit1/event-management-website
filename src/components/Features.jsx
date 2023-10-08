@@ -13,7 +13,7 @@ const Features = () => {
   }, []);
 
     return (
-        <div className='grid lg:grid-cols-2 gap-20 container mx-auto my-12'>
+        <div className='grid lg:grid-cols-2 gap-20 container mx-auto my-12 px-4'>
             <div data-aos="fade-right" className='flex'>
                 <img   className=' w-48 md:w-80 hover:scale-[1.05] duration-1000' src={img1} alt="" />
                 

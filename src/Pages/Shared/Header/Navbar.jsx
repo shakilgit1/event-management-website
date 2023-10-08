@@ -19,12 +19,9 @@ const Navbar = () => {
 
   const navLinks = <>
    <li><NavLink to="/">Home</NavLink></li>
-   {
-     user && <>
-     <li><NavLink to="/services">Services</NavLink></li>
-     <li><NavLink to="/events">Events</NavLink></li>    
-    </>
-   }
+   <li><NavLink to="/services">Services</NavLink></li>
+   <li><NavLink to="/events">Events</NavLink></li>    
+  
    <li><NavLink to="/about">About</NavLink></li>
    <li><NavLink to="/register">Register</NavLink></li>
 
@@ -60,7 +57,7 @@ const Navbar = () => {
              
             </ul>
           </div>
-          <img className="" src="/logo-dark.png" alt="" />
+          <img className="w-20 md:w-auto" src="/logo-dark.png" alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
